@@ -13,11 +13,8 @@ void selection_sort(int *array, size_t size)
 	size_t i, j, jMin;
 	int temp;
 
-	if (size < 2)
-	{
-		print_array(array, size);
+	if (array && size < 2)
 		return;
-	}
 
 	for (i = 0; i < size - 1; i++)
 	{
