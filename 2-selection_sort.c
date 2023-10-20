@@ -11,9 +11,8 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j, jMin;
-	int temp;
 
-	if (array && size < 2)
+	if (array == NULL || size < 2)
 		return;
 
 	for (i = 0; i < size - 1; i++)
@@ -28,10 +27,23 @@ void selection_sort(int *array, size_t size)
 		}
 		if (jMin != i)
 		{
-			temp = array[i];
-			array[i] = array[jMin];
-			array[jMin] = temp;
+			swap(&array[i], &array[jMin]);
+			print_array(array, size);
 		}
-		print_array(array, size);
 	}
+}
+
+/**
+ * swap - swaps two integers
+ * @a: pointer to first integer
+ * @b: pointer to second integer
+ *
+ * Return: nothing
+ */
+void swap(int *a, int *b)
+{
+	int temp = *a;
+
+	*a = *b;
+	*b = temp;
 }
