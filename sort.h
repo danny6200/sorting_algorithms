@@ -17,9 +17,9 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 
 
@@ -34,7 +34,8 @@ void quick_sort(int *array, size_t size);
 void swap(int *a, int *b);
 int lomuto_partition(int *array, int low, int high);
 void quick_sort_recursive(int *array, int low, int high, size_t size);
-
+void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 
 
