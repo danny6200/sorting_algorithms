@@ -1,3 +1,19 @@
+#include "sort.h"
+/**
+ * quick_sort - sorts an array using quick sort
+ * algorithm
+ * @array: array to be sorted
+ * @size: size of array
+ * 
+ * Return nothing
+ */
+void quick_sort(int *array, size_t size)
+{
+	if (size <= 1 || !array)
+		return;
+	quick_sort_recursive(array, 0, size - 1, size);
+}
+
 /**
  * swap - swaps two integer elements
  * @a: pointer to the first integer
@@ -5,8 +21,6 @@
  *
  * Return: nothing
  */
-
-#include "sort.h"
 
 void swap(int *a, int *b)
 {
@@ -66,21 +80,4 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 		quick_sort_recursive(array, low, pivot_index - 1, size);
 		quick_sort_recursive(array, pivot_index + 1, high, size);
 	}
-	else
-		return
-}
-
-/**
- * quick_sort - sorts an array using quick sort algorithm
- * @array: array to be sorted
- * @size: size of the array
- *
- * Return: nothing
- */
-
-void quick_sort(int *array, size_t size)
-{
-	if (size <= 1)
-		return;
-	quick_sort_recursive(array, 0, size - 1, size);
 }
