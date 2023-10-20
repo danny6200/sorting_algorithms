@@ -6,6 +6,8 @@
  * using the Bubble sort algorithm.
  * @array: The array to be sorted.
  * @size: Number of elements in the array.
+ *
+ * Return: nothing
  */
 void bubble_sort(int *array, size_t size)
 {
