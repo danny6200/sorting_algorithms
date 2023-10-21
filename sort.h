@@ -42,10 +42,14 @@ void swap_nodes(listint_t **list, listint_t *left, listint_t *right);
 void heap_sort(int *array, size_t size);
 void sift_down(int *array, size_t size, size_t root, size_t end);
 void radix_sort(int *array, size_t size);
-=======
 void merge_sort(int *array, size_t size);
 void merge(int *array, size_t left_size, size_t right_size);
 void merge_sort_recursive(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
+void bitonic_recursive(int *array, size_t size, int dir);
+void bitonic_merge(int *array, size_t size, int dir);
+void bitonic_compare(int *array, size_t size, int dir);
+void print_step(const char *label, int *array, size_t size);
 
 
 #endif
