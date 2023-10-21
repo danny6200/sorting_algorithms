@@ -39,6 +39,7 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void swap_nodes(listint_t **list, listint_t *left, listint_t *right);
 void heap_sort(int *array, size_t size);
-
+void sift_down(int *array, size_t size, size_t root, size_t end);
+void radix_sort(int *array, size_t size);
 
 #endif
