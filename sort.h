@@ -26,6 +26,7 @@ typedef struct listint_s
 /* Function Prototypes */
 
 void print_array(const int *array, size_t size);
+void print_array_2(int *array, size_t size, size_t start);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
@@ -41,5 +42,10 @@ void swap_nodes(listint_t **list, listint_t *left, listint_t *right);
 void heap_sort(int *array, size_t size);
 void sift_down(int *array, size_t size, size_t root, size_t end);
 void radix_sort(int *array, size_t size);
+=======
+void merge_sort(int *array, size_t size);
+void merge(int *array, size_t left_size, size_t right_size);
+void merge_sort_recursive(int *array, size_t size);
+
 
 #endif

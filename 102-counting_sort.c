@@ -21,10 +21,7 @@ void counting_sort(int *array, size_t size)
 	counting_array = malloc((max + 1) * sizeof(int));
 
 	if (counting_array == NULL)
-	{
-		printf("Memory allocation failed\n");
 		return;
-	}
 	for (j = 0; j <= max; j++)
 		counting_array[j] = 0;
 
