@@ -5,32 +5,30 @@
  * @array: The array to be sorted
  * @size: The size of the array
  * @root: The root of the heap
- * @end: The end of the heap
+ * @max: The maximu index in the heap
  */
-void sift_down(int *array, size_t size, size_t root, size_t end)
+void sift_down(int *array, size_t size, size_t root, size_t max)
 {
-	size_t max, child;
+	size_t largest, left, right;
 	int temp;
 
-	while (2 * root + 1 <= end)
+	largest = root;
+	left = (2 * root) + 1;
+	right = (2 * root) + 2;
+
+	if (left < max && array[left] > array[largest])
+		largest = left;
+
+	if (right < max && array[right] > array[largest])
+		largest = right;
+
+	if (largest != root)
 	{
-		child = 2 * root + 1;
-		max = root;
-
-
-		if (child + 1 <= end && array[child] < array[child + 1])
-			max = child + 1;
-
-		if (array[root] < array[max])
-		{
-			temp = array[root];
-			array[root] = array[max];
-			array[max] = temp;
-			print_array(array, size);
-			root = max;
-		}
-		else
-			break;
+		temp = array[root];
+		array[root] = array[largest];
+		array[largest] = temp;
+		print_array(array, size);
+		sift_down(array, size, largest, max);
 	}
 }
 
@@ -42,13 +40,13 @@ void sift_down(int *array, size_t size, size_t root, size_t end)
 void heap_sort(int *array, size_t size)
 {
 	int temp;
-	size_t i;
+	int i;
 
-	if (!array || size < 2)
+	if (array == NULL || size < 2)
 		return;
 
-	for (i = size / 2; i > 0; i--)
-		sift_down(array, size, i - 1, size - 1);
+	for (i = size / 2 - 1; i >= 0; i--)
+		sift_down(array, size, i, size);
 
 	for (i = size - 1; i > 0; i--)
 	{
@@ -56,6 +54,6 @@ void heap_sort(int *array, size_t size)
 		array[0] = array[i];
 		array[i] = temp;
 		print_array(array, size);
-		sift_down(array, size, 0, i - 1);
+		sift_down(array, size, 0, i);
 	}
 }
