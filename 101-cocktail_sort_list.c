@@ -7,38 +7,20 @@
  * @left: The left node to swap.
  * @right: The right node to swap.
  */
-void swap_nodes(listint_t **list, listint_t *left, listint_t *right)
+void swap_nodes(listint_t **list, listint_t *b, listint_t *c)
 {
-	listint_t *tmp;
+	if (b->prev)
+		b->prev->next = c;
+	else
+		*list = c;
+	if (c->next)
+		c->next->prev = b;
 
-	if (left == NULL || right == NULL || *list == NULL)
-		return;
-	if (left == right)
-		return;
-	if (left->prev != NULL)
-		left->prev->next = right;
-	else
-		*list = right;
-	if (right->prev != NULL)
-		right->prev->next = left;
-	else
-		*list = left;
-	if (left->next != right)
-	{
-		tmp = left->next;
-		left->next = right->next;
-		right->next = tmp;
+	b->next = c->next;
+	c->prev = b->prev;
+	c->next = b;
+	b->prev = c;
 
-		if (left->next != NULL)
-			left->next->prev = left;
-		if (right->next->prev != NULL)
-			right->next->prev = right;
-	}
-	else
-	{
-		left->next = right;
-		right->prev = left;
-	}
 }
 
 /**
@@ -48,7 +30,7 @@ void swap_nodes(listint_t **list, listint_t *left, listint_t *right)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *left, *right, *cur;
+	listint_t *left = NULL, *right = NULL, *tmp = NULL, *cur;
 	int swapped = 1;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
@@ -57,36 +39,39 @@ void cocktail_sort_list(listint_t **list)
 	while (swapped)
 	{
 		swapped = 0;
-
-		for (left = *list; left->next != NULL; left = left->next)
+		tmp = *list;
+		
+		while (tmp->next != right)
 		{
-			if (left->n > left->next->n)
+			if (tmp->n > tmp->next->n)
 			{
-				cur = left->next;
-				swap_nodes(list, left, cur);
+				cur = tmp->next;
+				swap_nodes(list, tmp, cur);
 				swapped = 1;
-				print_list(*list);
+				print_list((const listint_t *)*list);
 			}
+			else
+				tmp = tmp->next;
 		}
 		if (swapped == 0)
 			break;
 
 		swapped = 0;
-		left = *list;
-		right = left;
-		while (right->next != NULL)
-			right = right->next;
 
-		while (right->prev != NULL)
+		right = tmp;
+
+		while (tmp->prev != left)
 		{
-			if (right->n < right->prev->n)
+			if (tmp->n < tmp->prev->n)
 			{
-				cur = right->prev;
-				swap_nodes(list, cur, right);
+				cur = tmp->prev;
+				swap_nodes(list, cur, tmp);
 				swapped = 1;
-				print_list(*list);
+				print_list((const listint_t *)*list);
 			}
-			right = right->prev;
+			else
+				tmp = tmp->prev;
 		}
+		left = tmp;
 	}
 }
