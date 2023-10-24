@@ -5,7 +5,9 @@
  * @array: The array to be sorted
  * @size: The size of the array
  * @root: The root of the heap
- * @max: The maximu index in the heap
+ * @max: The maximum index in the heap
+ *
+ * Return: nothing
  */
 void sift_down(int *array, size_t size, size_t root, size_t max)
 {
@@ -36,6 +38,8 @@ void sift_down(int *array, size_t size, size_t root, size_t max)
  * heap_sort - Sorts an array of integers in ascending order using Heaps
  * @array: The array to be sorted
  * @size: The size of the array
+ *
+ * Return: nothing
  */
 void heap_sort(int *array, size_t size)
 {

@@ -31,19 +31,19 @@ void bitonic_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	bitonic_recursive(array, size, 1);
+	bitonic_sort_recursive(array, size, 1);
 
 	print_step("Merging [16/16] (UP)", array, size);
 	print_step("Result [16/16] (UP)", array, size);
 }
 
 /**
- * bitonic_recursive - Recursively sort a Bitonic sequence
+ * bitonic_sort_recursive - Recursively sort a Bitonic sequence
  * @array: The array to be sorted
  * @size: The size of the array
  * @dir: The direction of sorting (1 for ascending, 0 for descending)
  */
-void bitonic_recursive(int *array, size_t size, int dir)
+void bitonic_sort_recursive(int *array, size_t size, int dir)
 {
 	size_t half = size / 2;
 
@@ -56,8 +56,8 @@ void bitonic_recursive(int *array, size_t size, int dir)
 
 		print_array(array, size);
 
-		bitonic_recursive(array, half, 1);
-		bitonic_recursive(array + half, half, 0);
+		bitonic_sort_recursive(array, half, 1);
+		bitonic_sort_recursive(array + half, half, 0);
 		bitonic_merge(array, size, dir);
 
 		printf("Result [%lu/%lu] (UP):\n", size, size);

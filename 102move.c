@@ -14,18 +14,18 @@ void counting_sort(int *array, size_t size)
 	int max = 0, *counting_array, j, *sorted_array;
 	size_t i;
 
+	if (array == NULL || size < 2)
+		return;
 	for (i = 0; i < size; i++)
 	{
 		if (array[i] > max)
 			max = array[i];
 	}
-
 	sorted_array = malloc(size * sizeof(int));
 	if (sorted_array == NULL)
 		return;
 
 	counting_array = malloc((max + 1) * sizeof(int));
-
 	if (counting_array == NULL)
 	{
 		free(sorted_array);
@@ -36,7 +36,7 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 0; i < size; i++)
 		counting_array[array[i]]++;
-	for (j = 0; j < max + 1; j++)
+	for (j = 1; j < max + 1; j++)
 		counting_array[j] += counting_array[j - 1];
 	print_array(counting_array, max + 1);
 
