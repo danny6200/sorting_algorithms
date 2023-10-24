@@ -33,6 +33,4 @@ typedef struct deck_node_s
     struct deck_node_s *next;
 } deck_node_t;
 void sort_deck(deck_node_t **deck);
-static int card_value_compare(const card_t *card1, const card_t *card2);
-static int card_compare(const void *a, const void *b);
-static int card_kind_compare(const card_t *card1, const card_t *card2);
+int compare_cards(const void *a, const void *b);
