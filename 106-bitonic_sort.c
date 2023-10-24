@@ -21,7 +21,8 @@ void bitonic_sort(int *array, size_t size)
  * @seq: size of sequence block
  * @dir: Direction of the sort (1 for ascending, 0 for descending)
  */
-void bitonic_sort_recursive(int *array, size_t size, size_t start, size_t seq, int dir)
+void bitonic_sort_recursive(int *array, size_t size,
+			size_t start, size_t seq, int dir)
 {
 	size_t mid = seq / 2;
 	const char *direction = (dir == 1) ? "UP" : "DOWN";
@@ -58,7 +59,8 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq, int dir)
 	{
 		for (i = start; i < start + mid; i++)
 		{
-			if ((dir == 1 && array[i] > array[i + mid]) || (dir == 0 && array[i] < array[i + mid]))
+			if ((dir == 1 && array[i] > array[i + mid]) ||
+					(dir == 0 && array[i] < array[i + mid]))
 			{
 				temp = array[i];
 				array[i] = array[i + mid];

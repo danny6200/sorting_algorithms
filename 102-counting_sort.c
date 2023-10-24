@@ -14,19 +14,16 @@ void counting_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-
 	for (i = 0; i < size; i++)
 	{
 		if (array[i] > max)
 			max = array[i];
 	}
-
 	sorted_array = malloc(size * sizeof(int));
 	if (sorted_array == NULL)
 		return;
 
 	counting_array = malloc((max + 1) * sizeof(int));
-
 	if (counting_array == NULL)
 	{
 		free(sorted_array);
