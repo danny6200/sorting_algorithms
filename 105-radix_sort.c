@@ -6,6 +6,7 @@
  * radix_sort - Sorts an array of integers using Radix sort algorithm
  * @array: The array to be sorted
  * @size: The size of the array
+ * Return: 0 on success and 1 on failure
  */
 void radix_sort(int *array, size_t size)
 {
