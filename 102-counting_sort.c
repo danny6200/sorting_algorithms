@@ -1,3 +1,5 @@
+#include "sort.h"
+
 /**
  * counting_sort - sorts an array using counting sort
  * algorithm
@@ -6,7 +8,7 @@
  *
  * Return: nothing
  */
-#include "sort.h"
+
 void counting_sort(int *array, size_t size)
 {
 	int max = 0, *counting_array, j, *sorted_array;
