@@ -50,6 +50,9 @@ void bitonic_recursive(int *array, size_t size, int dir);
 void bitonic_merge(int *array, size_t size, int dir);
 void bitonic_compare(int *array, size_t size, int dir);
 void print_step(const char *label, int *array, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+void _quick_sort_hoare(int *array, int low, int high, size_t size);
+int hoare_partition(int *array, int low, int high, size_t size);
 
 
 #endif
