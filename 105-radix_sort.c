@@ -8,7 +8,12 @@
  * @size: The size of the array
 <<<<<<< HEAD
  *
+ * Return: Always 0
+=======
+<<<<<<< HEAD
+ *
  * Return: nothing
+>>>>>>> 17a2e7b3631cbc1d6281d652813870c457146083
  */
 void radix_sort(int *array, size_t size)
 {
