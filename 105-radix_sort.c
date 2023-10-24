@@ -6,6 +6,7 @@
  * radix_sort - Sorts an array of integers using Radix sort algorithm
  * @array: The array to be sorted
  * @size: The size of the array
+<<<<<<< HEAD
  *
  * Return: nothing
  */
