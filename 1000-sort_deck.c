@@ -26,6 +26,8 @@ int compare_cards(const void *a, const void *b)
 /**
  * sort_deck - Sorts a deck of cards in ascending order
  * @deck: A pointer to the head of the deck.
+ *
+ * Return: Always 0
  */
 void sort_deck(deck_node_t **deck)
 {
